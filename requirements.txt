@@ -1,0 +1,6 @@
+pandas
+numpy
+pprint
+dateutil
+sqlalchemy
+dotenv

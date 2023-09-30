@@ -4,8 +4,8 @@ from datetime import datetime
 
 Base = declarative_base()
 
-class HotelIncome(Base):
-    __tablename__ = 'Hotel_Income'
+class HotelProfit(Base):
+    __tablename__ = 'Hotel_Profit'
     
     id = Column(Integer, primary_key=True)
     Month_Year = Column(String(50))
@@ -26,7 +26,7 @@ class HotelIncome(Base):
         self.Occupation_Percentage = Occupation_Percentage
         self.Total_Monthly_Profit = Total_Monthly_Profit
     def __repr__(self):
-        return f"\nHotelIncome(id = {self.id},\
+        return f"\nHotelProfit(id = {self.id},\
     \nMonth_Year = {self.Month_Year},\
     \nKind_Room = {self.Kind_Room},\
     \nMonthly_Room_Profit = {self.Monthly_Room_Profit},\

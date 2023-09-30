@@ -1,5 +1,5 @@
 from sqlalchemy.exc import SQLAlchemyError
-from models import HotelIncome
+from models import HotelProfit
 from db_login import MySQL
 from dotenv import load_dotenv
 import os
@@ -11,14 +11,14 @@ if db_url is None:
     raise ValueError("DB_URL environment variable is not set")
 
 database_boot = MySQL(database_url=db_url)
-tables = [HotelIncome]
+tables = [HotelProfit]
 database_boot.create_tables(tables)
 
 db_conn = database_boot.get_conn()
 
 def create_hotel_income(Month_Year, Kind_Room, Monthly_Room_Profit, Total_Rooms, Occupied_Rooms, Occupation_Percentage, Total_Monthly_Profit):
     try:
-        new_record = HotelIncome(
+        new_record = HotelProfit(
             Month_Year = Month_Year,
             Kind_Room = Kind_Room,
             Monthly_Room_Profit = Monthly_Room_Profit,
@@ -46,7 +46,7 @@ def batch_create_hotel_income(data_file, filename):
             Occupation_Percentage = row['% Occupation']
             Total_Monthly_Profit = row['Total Monthly Profit']
             
-            hotel_income = HotelIncome(
+            hotel_income = HotelProfit(
                 Month_Year = Month_Year,
                 Kind_Room = Kind_Room,
                 Monthly_Room_Profit = Monthly_Room_Profit,
@@ -74,7 +74,7 @@ def batch_create_hotel_income(data_file, filename):
 
 def batch_read_hotel_income():
     try:
-        records = db_conn.query(HotelIncome).all()
+        records = db_conn.query(HotelProfit).all()
         return records
     except SQLAlchemyError as e:
         print(f"Error reading records: {e}")
@@ -82,7 +82,7 @@ def batch_read_hotel_income():
 
 def read_hotel_income(record_id):
     try:
-        record = db_conn.query(HotelIncome).filter_by(id=record_id).first()
+        record = db_conn.query(HotelProfit).filter_by(id=record_id).first()
         return record
     except SQLAlchemyError as e:
         print(f"Error reading record by ID: {e}")
@@ -90,7 +90,7 @@ def read_hotel_income(record_id):
 
 def update_hotel_income(record_id, Month_Year, Kind_Room, Monthly_Room_Profit, Total_Rooms, Occupied_Rooms, Occupation_Percentage, Total_Monthly_Profit):
     try:
-        record = db_conn.query(HotelIncome).filter_by(id=record_id).first()
+        record = db_conn.query(HotelProfit).filter_by(id=record_id).first()
         if record:
             record.Month_Year = Month_Year,
             record.Kind_Room = Kind_Room,
@@ -110,7 +110,7 @@ def update_hotel_income(record_id, Month_Year, Kind_Room, Monthly_Room_Profit, T
 
 def delete_hotel_income(record_id):
     try:
-        record = db_conn.query(HotelIncome).filter_by(id=record_id).first()
+        record = db_conn.query(HotelProfit).filter_by(id=record_id).first()
         if record:
             db_conn.delete(record)
             db_conn.commit()

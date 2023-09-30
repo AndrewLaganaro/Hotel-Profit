@@ -16,7 +16,7 @@ class MySQL:
             table_name = schema.__tablename__
             
             # Check if the table exists
-            table_exists = table_name.lower() in self.inspector.get_table_names()
+            table_exists = table_name.lower() in self.inspector.get_table_names().lower()
             
             if not table_exists:
                 # The table doesn't exist, so create it

@@ -46,7 +46,7 @@ Para reprodução local:
 
 Instalar **MySQL Server 8.0.34**, **MySQL WorkBench 8.0.34** na **configuração inicial padrão**
 - Usuário: Andrew | Senha: 123456 | Porta: 3306 (padrão)
-- Banco de Dados: test_db | Tabela: hotel_income (serão criados na execução)
+- Banco de Dados: test_db | Tabela: hotel_income (serão criados na execução do projeto)
 
 Durante a instalação é possível criar o usuário de teste, caso esta opção não apareça, também é possível via o MySQL CLI (linha de comando) que é instalado junto, com os comandos, em sequência:
   ```SQL
@@ -63,7 +63,7 @@ Execução da Análise e Deploy no MySQL Server:
       - 📜 Hotel_Profit_Analysis.xlsx
       - 📜 Hotel_Profit_Analysis_Dashed.xlsx 
 
-- Executar o arquivo principal, **hotels_main.py**, ele irá:
+- Executar o arquivo principal **hotels_main.py**, ele irá:
   - Registrar os arquivos tratados no DB
   - Ler o registro de ID 12 e exibí-lo no Terminal
   - Exportar a tabela vinda do DB, em .csv e .xlsx:

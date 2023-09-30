@@ -70,4 +70,8 @@ Execução da Análise e Deploy no MySQL Server:
       - 📜 Hotel_Profit_Export_CSV.csv
       - 📜 Hotel_Profit_Export_EXCEL.xlsx
 
+![Alt text](Images/MySQL_Table.png)
+
+![Alt text](Images/Excel_Exported_Table.png)
+
 Link da análise completa: https://github.com/AndrewLaganaro/Hotel-Profit
